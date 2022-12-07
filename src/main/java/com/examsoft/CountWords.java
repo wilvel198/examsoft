@@ -5,8 +5,6 @@ import org.apache.commons.io.IOUtils;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.TreeMap;
 import java.util.Collections;
 import java.util.Map;
@@ -22,13 +20,12 @@ public class CountWords {
         //check and see if a file name was passed as a paramter
         //if file location was passed use file to count words
 
-        if(argsSize > 0){
+        if (argsSize > 0) {
             fileLocation = args[0].toString();
             System.out.println("file location for word counting --> " + fileLocation);
             tempWords = getDataFromFile(fileLocation);
             countTreeMap(tempWords);
-        }else
-        {
+        } else {
             countTreeMap(tempWords);
         }
     }
@@ -39,7 +36,6 @@ public class CountWords {
     // the unique words are counted and a collection is used to put them in reverse order
     // when they print
     public static void countTreeMap(String words2Count) {
-       // TreeMap<String, Integer> wordCounter = new TreeMap<String, Integer>();
         TreeMap<String, Integer> wordCounter
                 = new TreeMap<>(Collections.reverseOrder());
         //the words strings are put in lower case and split into an array for counting
@@ -56,16 +52,17 @@ public class CountWords {
             }
         }
 
-        for( Map.Entry<String, Integer> entry : wordCounter.entrySet() ){
-            System.out.println(entry.getValue()  + " " + entry.getKey() );
+        for (Map.Entry<String, Integer> entry : wordCounter.entrySet()) {
+            System.out.println(entry.getValue() + " " + entry.getKey());
         }
     }
 
+    //this method retrieves words from a file to count
     public static String getDataFromFile(String path) throws IOException {
         String wordCountInfo = "";
         try {
             FileInputStream fis = new FileInputStream(path);
-             wordCountInfo = IOUtils.toString(fis, "UTF-8");
+            wordCountInfo = IOUtils.toString(fis, "UTF-8");
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
