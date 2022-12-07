@@ -14,19 +14,13 @@ import java.util.Map;
 public class CountWords {
 
     public static void main(String[] args) throws IOException {
-        System.out.println("----------> Testing word count <----------------");
         int argsSize = args.length;
         String fileLocation = null;
-
-        System.out.println("the arg size is " + argsSize);
-
         String tempWords = "the cat is in the bag";
-
 
         //check and see if a file name was passed as a paramter
         //if file location was passed use file to count words
         if(argsSize > 0){
-            fileLocation = args[0].toString();
             fileLocation = args[0].toString();
             System.out.println("file location for word counting --> " + fileLocation);
             tempWords = getDataFromFile(fileLocation);
