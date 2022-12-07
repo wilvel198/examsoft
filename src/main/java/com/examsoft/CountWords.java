@@ -15,15 +15,18 @@ public class CountWords {
 
     public static void main(String[] args) throws IOException {
         int argsSize = args.length;
+
         String fileLocation = null;
         String tempWords = "the cat is in the bag";
 
         //check and see if a file name was passed as a paramter
         //if file location was passed use file to count words
+
         if(argsSize > 0){
             fileLocation = args[0].toString();
             System.out.println("file location for word counting --> " + fileLocation);
             tempWords = getDataFromFile(fileLocation);
+            countTreeMap(tempWords);
         }else
         {
             countTreeMap(tempWords);
@@ -67,7 +70,6 @@ public class CountWords {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
 
         return wordCountInfo;
     }
